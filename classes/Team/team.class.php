@@ -18,6 +18,10 @@ class Team {
 		}
 	}
 
+	public function getName() {
+		return $this->name;
+	}
+	
 	public function listPlayers() {
 		foreach ($this->players as $player) {
 			echo '<br>' . $player->getName();
