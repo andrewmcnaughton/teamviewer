@@ -21,47 +21,34 @@ include 'includes/autoloader.inc.php';
 <body>
 
 	<?php
+
+	// Create Premier League
 	$premierLeague = new League\League('Premier League');
+
+	// Create Teams
 	$tottenham = new Team\Team('Spurs');
 	$arsenal = new Team\Team('Arsenal');
+
+	// Add Teams to Premier League
 	$premierLeague->addTeam($tottenham);
 	$premierLeague->addTeam($arsenal);
 
-	$harryKane = new Player\Player('Harry Kane', 27, 10, 200);
-	$dayoScholing = new Player\Player('Dayo Scholing', 29, 7, 15);
-	$nickBendtner = new Player\Player('Nicklas Bendtner', 32, 52, 24);
+	// Create Players, Name, Age, Number, Goals, League
+	$harryKane = new Player\Player('Harry Kane', 27, 10, 200, $premierLeague);
+	$dayoScholing = new Player\Player('Dayo Scholing', 29, 7, 15, $premierLeague);
+	$dayoScholing = new Player\Player('Dayo Scholing', 29, 7, 15, $premierLeague);
+	$nickBendtner = new Player\Player('Nicklas Bendtner', 32, 52, 24, $premierLeague);
 
+	// Add Players to Teams
 	$tottenham->addPlayer($harryKane, $premierLeague);
 	$tottenham->addPlayer($dayoScholing, $premierLeague);
 	$arsenal->addPlayer($nickBendtner, $premierLeague);
 	$arsenal->addPlayer($dayoScholing, $premierLeague);
 
-	echo '<h3>' . $tottenham->getName() . '</h3>';?>
-	<table>
-	  <tr>
-	    <th>Name</th>
-	    <th>Age</th>
-	    <th>Number</th>
-	    <th>Goals</th>
-	  </tr>
-	  <tr>
-			<?php $tottenham->tablePlayers();?>    
-	  </tr>
-	</table>
+	// Output Teams
+	$tottenham->tablePlayers();
+	$arsenal->tablePlayers();
 
-	<?php echo '<h3>' . $arsenal->getName() . '</h3>';?>
-	<table>
-	  <tr>
-	    <th>Name</th>
-	    <th>Age</th>
-	    <th>Number</th>
-	    <th>Goals</th>
-	  </tr>
-	  <tr>
-			<?php $arsenal->tablePlayers();?>    
-	  </tr>
-	</table>		
-	
-
+	?>
 </body>
 </html>

@@ -1,5 +1,7 @@
 <?php 
 
+declare(strict_types = 1);
+
 namespace Team;
 
 class Team {
@@ -31,6 +33,9 @@ class Team {
 	}
 
 	public function tablePlayers() {
+		echo '<h3>' . $this->name . '</h3>';
+		echo '<table><tr><th>Name</th><th>Age</th><th>Number</th><th>Goals</th></tr><tr>';
+
 		foreach ($this->players as $player) {
 			echo '<tr>';
 			echo '<td>' . $player->getName() . '</td>';
@@ -39,6 +44,8 @@ class Team {
 			echo '<td>' . $player->getGoals() . '</td>';
 			echo '</tr>';
 		}
+
+	  echo '</tr></table>';		
 	}
 }
 
