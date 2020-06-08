@@ -36,18 +36,22 @@ include 'includes/autoloader.inc.php';
 	// Create Players, Name, Age, Number, Goals, League
 	$harryKane = new Player\Player('Harry Kane', 27, 10, 200, $premierLeague);
 	$dayoScholing = new Player\Player('Dayo Scholing', 29, 7, 15, $premierLeague);
-	$dayoScholing = new Player\Player('Dayo Scholing', 29, 7, 15, $premierLeague);
 	$nickBendtner = new Player\Player('Nicklas Bendtner', 32, 52, 24, $premierLeague);
 
 	// Add Players to Teams
 	$tottenham->addPlayer($harryKane, $premierLeague);
 	$tottenham->addPlayer($dayoScholing, $premierLeague);
 	$arsenal->addPlayer($nickBendtner, $premierLeague);
+
+	// Add duplicate player to test
 	$arsenal->addPlayer($dayoScholing, $premierLeague);
 
 	// Output Teams
 	$tottenham->tablePlayers();
 	$arsenal->tablePlayers();
+
+	// Average age only working with first team, as league->getPlayers() doesn't work
+	echo '<br>Average age in ' . $premierLeague->getName() . ' = ' . $premierLeague->averageAge();
 
 	?>
 </body>

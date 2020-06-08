@@ -24,10 +24,22 @@ class League {
 		return $this->name;
 	}
 
-	public function getLeaguePlayers() {
+	// This only works for first team
+	public function getPlayers() {
 		foreach($this->teams as $team) {
 			return $team->getPlayers();
 		}
+	}
+
+	public function averageAge() {
+		$totalAge = 0;
+		$count = 0;
+		foreach($this->getPlayers() as $player) {
+			$totalAge = $totalAge + $player->getAge();
+			$count++;
+		}
+
+		return $totalAge / $count;
 	}
 
 }
