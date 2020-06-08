@@ -50,8 +50,11 @@ include 'includes/autoloader.inc.php';
 	$tottenham->tablePlayers();
 	$arsenal->tablePlayers();
 
-	// Average age
-	echo '<br>Average age in ' . $premierLeague->getName() . ' = ' . $premierLeague->averageAge();
+	// Average age of League
+	$premierLeague->averageAge();
+
+	// Most Goals
+	$premierLeague->mostGoals();
 
 	?>
 </body>
