@@ -21,14 +21,20 @@ include 'includes/autoloader.inc.php';
 <body>
 
 	<?php
-	
+	$premierLeague = new League\League('Premier League');
+	$tottenham = new Team\Team('Spurs');
+	$arsenal = new Team\Team('Arsenal');
+	$premierLeague->addTeam($tottenham);
+	$premierLeague->addTeam($arsenal);
+
 	$harryKane = new Player\Player('Harry Kane', 27, 10, 200);
 	$dayoScholing = new Player\Player('Dayo Scholing', 29, 7, 15);
+	$nickBendtner = new Player\Player('Nicklas Bendtner', 32, 52, 24);
 
-	$tottenham = new Team\Team('Spurs');
-	$tottenham->addPlayer($harryKane);
-	$tottenham->addPlayer($dayoScholing);
-	$tottenham->addPlayer($dayoScholing);
+	$tottenham->addPlayer($harryKane, $premierLeague);
+	$tottenham->addPlayer($dayoScholing, $premierLeague);
+	$arsenal->addPlayer($nickBendtner, $premierLeague);
+	$arsenal->addPlayer($dayoScholing, $premierLeague);
 
 	echo '<h3>' . $tottenham->getName() . '</h3>';?>
 	<table>
@@ -39,9 +45,22 @@ include 'includes/autoloader.inc.php';
 	    <th>Goals</th>
 	  </tr>
 	  <tr>
-			<?php $tottenham->listPlayers();?>    
+			<?php $tottenham->tablePlayers();?>    
 	  </tr>
-	</table>	
+	</table>
+
+	<?php echo '<h3>' . $arsenal->getName() . '</h3>';?>
+	<table>
+	  <tr>
+	    <th>Name</th>
+	    <th>Age</th>
+	    <th>Number</th>
+	    <th>Goals</th>
+	  </tr>
+	  <tr>
+			<?php $arsenal->tablePlayers();?>    
+	  </tr>
+	</table>		
 	
 
 </body>

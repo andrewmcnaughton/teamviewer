@@ -10,19 +10,27 @@ class Team {
 		$this->name = $name;
 	}
 
-	public function addPlayer(\Player\Player $playerObject) {
-		if(in_array($playerObject, $this->players)) {
-			echo 'Error: Failed to add ' . $playerObject->getName() . ', Player already exists!';
+	public function addPlayer(\Player\Player $playerObject, \League\League $leagueObject) {
+
+		// Check if player alrady exists in the league, eo ensure no double ups
+
+		if(in_array($playerObject, $leagueObject->getLeaguePlayers())) {
+			echo 'Error: Failed to add ' . $playerObject->getName() . ' to ' . $this->name . ', player already exists!';
 		} else {
 			$this->players[] = $playerObject;	
 		}
+
 	}
 
 	public function getName() {
 		return $this->name;
 	}
 
-	public function listPlayers() {
+	public function getPlayers() {
+		return $this->players;
+	}
+
+	public function tablePlayers() {
 		foreach ($this->players as $player) {
 			echo '<tr>';
 			echo '<td>' . $player->getName() . '</td>';
