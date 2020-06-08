@@ -11,17 +11,17 @@ include 'includes/autoloader.inc.php';
 <body>
 
 	<?php
-
-	$Tottenham = new Team\Team('Spurs');
+	
 	$harryKane = new Player\Player('Harry Kane', 27, 10, 200);
 	$dayoScholing = new Player\Player('Dayo Scholing', 29, 7, 15);
 
-	$Tottenham->addPlayer($harryKane);
-	$Tottenham->addPlayer($dayoScholing);
-	$Tottenham->addPlayer($dayoScholing);
-	
-	echo '<h4>' . $Tottenham->getName() . '</h4>';
-	$Tottenham->listPlayers();
+	$tottenham = new Team\Team('Spurs');
+	$tottenham->addPlayer($harryKane);
+	$tottenham->addPlayer($dayoScholing);
+	$tottenham->addPlayer($dayoScholing);
+
+	echo '<h3>' . $tottenham->getName() . '</h3>';
+	$tottenham->listPlayers();
 
 	?>
 
