@@ -24,11 +24,15 @@ class League {
 		return $this->name;
 	}
 
-	// This only works for first team
+	// Is there a better way to do this?
 	public function getPlayers() {
+		$allPlayers = [];
+
 		foreach($this->teams as $team) {
-			return $team->getPlayers();
+			$allPlayers = array_merge($allPlayers, $team->getPlayers());
 		}
+
+		return $allPlayers;
 	}
 
 	public function averageAge() {
@@ -38,8 +42,8 @@ class League {
 			$totalAge = $totalAge + $player->getAge();
 			$count++;
 		}
-
 		return $totalAge / $count;
+
 	}
 
 }

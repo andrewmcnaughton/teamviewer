@@ -44,13 +44,13 @@ include 'includes/autoloader.inc.php';
 	$arsenal->addPlayer($nickBendtner, $premierLeague);
 
 	// Add duplicate player to test
-	$arsenal->addPlayer($dayoScholing, $premierLeague);
+	$arsenal->addPlayer($nickBendtner, $premierLeague);
 
 	// Output Teams
 	$tottenham->tablePlayers();
 	$arsenal->tablePlayers();
 
-	// Average age only working with first team, as league->getPlayers() doesn't work
+	// Average age
 	echo '<br>Average age in ' . $premierLeague->getName() . ' = ' . $premierLeague->averageAge();
 
 	?>
