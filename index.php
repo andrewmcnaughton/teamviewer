@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types = 1);
+
 include 'includes/autoloader.inc.php';
 ?>
 <!DOCTYPE html>
@@ -26,23 +28,23 @@ include 'includes/autoloader.inc.php';
 	$dayoScholing = new Player\Player('Dayo Scholing', 29, 7, 15);
 
 	$tottenham = new Team\Team('Spurs');
-	$tottenham->addPlayer($harryKane);
-	$tottenham->addPlayer($dayoScholing);
-	$tottenham->addPlayer($dayoScholing);
+	// $tottenham->addPlayer($harryKane);
+	// $tottenham->addPlayer($dayoScholing);
+	// $tottenham->addPlayer($dayoScholing);
 
-	echo '<h3>' . $tottenham->getName() . '</h3>';?>
-	<table>
-	  <tr>
-	    <th>Name</th>
-	    <th>Age</th>
-	    <th>Number</th>
-	    <th>Goals</th>
-	  </tr>
-	  <tr>
-			<?php $tottenham->listPlayers();?>    
-	  </tr>
-	</table>	
-	
+	// $premierLeague = new League\League('Premier League');
+	// $premierLeague->addTeam($tottenham);
+	// $premierLeague->addTeam($tottenham);
+
+	// $premierLeague->displayTeams();
+
+	$premierLeague = new League\League('Premier League');
+	$premierLeague->addPlayer($harryKane, $tottenham);
+	$premierLeague->addPlayer($dayoScholing, $tottenham);
+
+	$premierLeague = $premierLeague->groupByTeam('team');
+	print_r($premierLeague);
+	?>    
 
 </body>
 </html>
