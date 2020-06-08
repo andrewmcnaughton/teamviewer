@@ -10,23 +10,29 @@ class Team {
 		$this->name = $name;
 	}
 
-	public function addPlayer(\Player\Player $player) {
-		if(in_array($player, $this->players)) {
-			echo 'Error: Failed to add ' . $player->getName() . ', Player already exists!';
+	public function addPlayer(\Player\Player $playerObject) {
+		if(in_array($playerObject, $this->players)) {
+			echo 'Error: Failed to add ' . $playerObject->getName() . ', Player already exists!';
 		} else {
-			$this->players[] = $player;	
+			$this->players[] = $playerObject;	
 		}
 	}
 
 	public function getName() {
 		return $this->name;
 	}
-	
+
 	public function listPlayers() {
 		foreach ($this->players as $player) {
-			echo '<br>' . $player->getName();
+			echo '<tr>';
+			echo '<td>' . $player->getName() . '</td>';
+			echo '<td>' . $player->getAge() . '</td>';
+			echo '<td>' . $player->getNumber() . '</td>';
+			echo '<td>' . $player->getGoals() . '</td>';
+			echo '</tr>';
 		}
 	}
 }
 
 ?>
+

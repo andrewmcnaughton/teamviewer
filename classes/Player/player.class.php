@@ -20,4 +20,16 @@ class Player {
 	public function getName() {
 		return $this->name;
 	}
+
+	public function getAge() {
+		return $this->age;
+	}
+
+	public function getNumber() {
+		return $this->number;
+	}
+
+	public function getGoals() {
+		return $this->goals;
+	}			
 }
