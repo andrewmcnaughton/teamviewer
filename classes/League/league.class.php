@@ -34,7 +34,7 @@ class League {
 
 		return $allPlayers;
 	}
-
+	
 	// This seems so janky
 	public function averageAge() {
 		$totalAge = 0;
@@ -48,17 +48,11 @@ class League {
 
 	}
 
-	// This seems so janky, can I reuse the allPlayers from above?
 	public function mostGoals() {
 		$goals = 0;
 		$highestScorer = '';
-		$allPlayers = [];
 
-		foreach($this->teams as $team) {
-			$allPlayers = array_merge($allPlayers, $team->getPlayers());
-		}
-
-		foreach($allPlayers as $player) {
+		foreach($this->getPlayers() as $player) {
 			if($player->getGoals() > $goals) {
 				$highestScorer = $player->getName();
 				$goals = $player->getGoals();

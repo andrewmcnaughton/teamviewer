@@ -13,15 +13,11 @@ class Team {
 	}
 
 	public function addPlayer(\Player\Player $playerObject, \League\League $leagueObject) {
-
-		// Check if player alrady exists in the league, eo ensure no double ups. Only works for first team!
-
 		if(in_array($playerObject, $leagueObject->getPlayers())) {
 			echo 'Error: Failed to add ' . $playerObject->getName() . ' to ' . $this->name . ', player already exists!';
 		} else {
 			$this->players[] = $playerObject;	
 		}
-
 	}
 
 	public function getName() {
@@ -33,12 +29,7 @@ class Team {
 	}
 
 	public function totalPlayers() {
-		$count = 0;
-		foreach($this->players as $player) {
-			$count++;
-		}
-
-		echo 'Total Players: ' . $count;
+		echo 'Total Players: ' . count($this->players);
 	}
 
 	public function tablePlayers() {
