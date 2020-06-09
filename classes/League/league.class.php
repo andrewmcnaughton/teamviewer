@@ -44,7 +44,7 @@ class League {
 			$count++;
 		}
 
-		echo '<br>Average age in ' . $this->name . ' = ' . $totalAge / $count;
+		echo '<br><br>Average age in ' . $this->name . ' = ' . $totalAge / $count;
 
 	}
 

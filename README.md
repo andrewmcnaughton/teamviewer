@@ -10,7 +10,7 @@ teams / players)~~
 * ~~A player has 1 team He can’t have multiple.~~
 * ~~Add a method to display the average age of a team~~
 * ~~Add a method with returns the player with the most goals~~
-* **Add a method to return the total player count of a team**
+* ~~Add a method to return the total player count of a team~~
 * **And keep it simple**
 
 #### Buzzwords

@@ -32,6 +32,15 @@ class Team {
 		return $this->players;
 	}
 
+	public function totalPlayers() {
+		$count = 0;
+		foreach($this->players as $player) {
+			$count++;
+		}
+
+		echo 'Total Players: ' . $count;
+	}
+
 	public function tablePlayers() {
 		echo '<h3>' . $this->name . '</h3>';
 		echo '<table><tr><th>Name</th><th>Age</th><th>Number</th><th>Goals</th></tr><tr>';
@@ -45,7 +54,9 @@ class Team {
 			echo '</tr>';
 		}
 
-	  echo '</tr></table>';		
+	  echo '</tr></table>';
+
+	  $this->totalPlayers();
 	}
 }
 
